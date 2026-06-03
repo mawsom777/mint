@@ -107,16 +107,26 @@ Mint - это веб-мессенджер с возможностью совер
 
 ## 📺 Демонстрация работы
 ### Регистрация
-
-
 https://github.com/user-attachments/assets/e6338f9e-695b-418c-a719-da9231488469
 
+### Отправка сообщения
+https://github.com/user-attachments/assets/e358849c-61ef-4ed9-a1e3-e65247e09c8d
 
+### Удаление сообщения
+https://github.com/user-attachments/assets/27e32d36-7e58-423e-90bf-26d5dd5eea8c
 
+### Редактирование сообщения
+https://github.com/user-attachments/assets/e063d702-737c-47a2-8ad2-fdbc30468993
+
+### Отправка файлов
+https://github.com/user-attachments/assets/e5fa1a87-eb88-4c14-8ad0-3f631e15bb92
+
+### Статус онлайн и прочтение
 https://github.com/user-attachments/assets/34f38438-3a41-43cf-94f4-3ac8f86189fe
 
+### Статус онлайн и прочтение
 
-## 📱 Демонстрационная версия
+## 📱 Демонстрация
 
 Рабочий экземпляр доступен по адресу: [https://mint.cloudpub.ru](https://mint.cloudpub.ru)  
 
