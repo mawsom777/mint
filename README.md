@@ -1,6 +1,6 @@
 # Mint messenger
 
-<img src="[https://github.com/mawsom777/mint/blob/main/materials/header.jpg" height="32"/>
+<img src="[https://github.com/mawsom777/mint/blob/main/materials/header.jpg" height="500">
 **Mint** - это веб-мессенджер с возможностью обмена текстовыми сообщениями (не только в личных чатах), файлами (с превью изображений) и с много чем еще.  
 
 ---
