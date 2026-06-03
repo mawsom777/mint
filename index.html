@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ru">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="imgs/icn.ico">
+<link rel="apple-touch-icon" href="imgs/ico.png">
+<link rel="icon" href="imgs/icns.icns">
+<link rel="favicon" href="imgs/icns.icns">
+<link href="styles/main.css" rel="stylesheet" type="text/css">
+<link href="styles/start.css" rel="stylesheet" type="text/css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<head>
+    <title>Mint</title>
+</head>
+<body>
+
+<!-- ================= ЭКРАН ВХОДА ================= -->
+<div id="auth-screen" class="auth-screen" style="display: none;">
+    <p class="bg"></p>
+    <div class="window">
+        <div class="logo"></div>
+        <div class="window-container">
+            <div class="login-row">
+                <p class="login-img"></p>
+                <input type="text" placeholder="Имя пользователя" name="login-inp" class="login-inp" autocomplete="on" autofocus>
+                <div class="login-tip-small hide">Длина должна быть не менее 3 символов</div>
+                <div class="login-tip-big hide">Длина должна быть меньше 35 символов</div>
+                <div class="login-tip-chars hide">Только a-z, 0-9 и нижнее подчеркивание</div>
+            </div>
+            <div class="pass-row">
+                <p class="pass-img"></p>
+                <input type="password" placeholder="Пароль" name="pass-inp" class="pass-inp" autocomplete="on">
+                <div class="pass-tip-small hide">Длина должна быть не менее 8 символов</div>
+                <div class="pass-tip-big hide">Длина должна быть меньше 72 символов</div>
+            </div>
+            <div class="reg-title clickable">
+                Регистрация
+                <div class="gay-row">
+                    <input name="gay-checkbox" class="gay-checkbox" type="checkbox">
+                    <div class="gay-title">Поставь галочку если не гей</div>
+                </div>
+            </div>
+            <div class="name-row">
+                <div class="avatar-img">
+                    <div class="colour-avatar">
+                        <div class="text-avatar"></div>
+                    </div>
+                </div>
+                <input type="text" placeholder="Ваше имя" name="name-inp" class="name-inp">
+            </div>
+            <div class="phone-title">Необязательно</div>
+            <div class="phone-row">
+                <p class="phone-img"></p>
+
+                <div class="phone-inp">
+                    <div class="country-selector">
+                        <div class="selected-country">
+                            <img class="flag" src="imgs/russia.png" alt="🇷🇺">
+                            <span class="code">+7</span>
+                        </div>
+                        <div class="country-dropdown"></div>
+                    </div>
+
+                    <div class="phone-input-wrapper">
+                        <label for="phone-input"></label>
+                        <input type="tel" id="phone-input" autocomplete="tel" inputmode="numeric" maxlength="13">
+                        <div class="phone-placeholder">
+                            <span class="placeholder-mask">000 000-00-00</span>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <div class="info-back">
+                            <div class="info-message">Телефон поможет найти вас быстрее другим пользователям</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <input type="button" class="next" value="Далее">
+        <div class="loading-row">
+            <div class="loading">
+                <span class="load"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ================= ЭКРАН МЕССЕНДЖЕРА ================= -->
+<div id="app-screen" class="app-screen" style="display: none;">
+    <div class="messenger">
+        <div class="chats-container">
+            <div class="chats-header">
+                <div class="create-menu">
+                    <div class="search-row">
+                        <input type="text"
+                               class="search-input"
+                               placeholder="Имя пользователя" />
+                        <button class="toggle-search">
+                            <img src="imgs/change.svg" alt="Сменить тип поиска" class="switch-img">
+                        </button>
+                    </div>
+                    <div class="search-results"></div>
+                </div>
+            </div>
+            <div class="chats-list" id="chatsList"></div>
+            <button class="notification">Включить уведомления</button>
+            <div class="chats-buttons-container">
+                <div class="chats-create-button">
+                    <img src="imgs/plus.svg" width="20" style="cursor: pointer">
+                </div>
+                <div class="settings-button">
+                    <img src="imgs/settings.svg" width="24" style="cursor: pointer">
+                </div>
+                <div class="band-dropdown"></div>
+            </div>
+        </div>
+        <div class="messages-container">
+            <div class="messages-header">
+                <div class="header-content">
+                    <div class="header-left-part">
+                        <button class="mobile-back-button" aria-label="Открыть список чатов" style="display: none;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="header-info">
+                            <div class="header-avatar"></div>
+                            <div class="header-titles">
+                                <div class="header-name"></div>
+                                <div class="header-participant-count" style="display:none;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right-part">
+                        <div class="header-calls call-type-button">
+                            <button class="video-call-header">
+                                <img src="imgs/video.svg" alt="Video" class="video-img">
+                            </button>
+                            <button class="audio-call-header">
+                                <img src="imgs/audio.svg" alt="Audio" class="audio-img">
+                            </button>
+                        </div>
+                        <button class="header-leave-btn" title="Выйти из чата">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                                <polyline points="16 17 21 12 16 7" />
+                                <line x1="21" y1="12" x2="9" y2="12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="drop-background"></div>
+            <div class="messages-list" id="messagesList"></div>
+            <div class="messages-bottom">
+                <div class="messages-bottom-container">
+                    <div class="file-queue"></div>
+                    <div class="message-edit-bar">
+                        <div class="edit-message-text"></div>
+                        <div class="message-edit-bar-cross">
+                            <img src="imgs/cross.svg" width="20" height="20" alt="Закрыть">
+                        </div>
+                    </div>
+                    <div class="messages-bottom-base">
+                        <button class="file-clip">
+                            <img src="imgs/clip.svg" alt="Прикрепить" class="clip-img">
+                        </button>
+                        <input type="file" class="file-input" multiple style="display: none;">
+                        <textarea maxlength="4096" placeholder="Сообщение" class="message-input"></textarea>
+                        <button class="message-send" disabled>
+                            <img src="imgs/send.svg" alt="Отправить" class="send-img">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="callModal" class="call-modal" style="display: none;">
+        <div class="call-modal-background" style="background-color: black; opacity: 0.4; width: 100%; height: 100%; position: absolute"></div>
+        <div class="call-modal-content">
+            <div class="video-container">
+                <video id="remoteVideo" class="remote-video" autoplay playsinline></video>
+                <video id="localVideo" class="local-video" autoplay muted playsinline></video>
+            </div>
+            <div class="call-panel">
+                <div class="call-header">
+                    <div id="callAvatar" class="call-interlocutor-avatar pulse-animation"></div>
+                    <div id="callStatus" class="call-status"></div>
+                    <div id="callInfo" class="call-info"></div>
+                </div>
+                <div class="call-controls">
+                    <div class="call-actions">
+                        <button id="acceptCallBtn" class="call-button accept" style="display: none;">
+                            <img src="imgs/acceptCall.svg" alt="Принять" style="width: 24px; height: 24px; cursor: pointer;">
+                        </button>
+                        <button id="rejectCallBtn" class="call-button reject" style="display: none;">
+                            <img src="imgs/rejectCall.svg" alt="Отклонить" style="width: 24px; height: 24px; cursor: pointer;">
+                        </button>
+                        <button id="endCallBtn" class="call-button end" style="display: none;">
+                            <img src="imgs/endCall.svg" alt="Закончить" style="width: 24px; height: 24px; cursor: pointer;">
+                        </button>
+                    </div>
+                    <div class="media-controls" style="display: none;">
+                        <button id="switchCameraBtn" class="media-button" style="display: none;">
+                            <img src="imgs/cameraChange.svg" alt="Камера">
+                        </button>
+                        <select id="cameraSelect" class="camera-select">
+                            <option value="">Загружаем камеру...</option>
+                        </select>
+                        <button id="toggleMicBtn" class="media-button">
+                            <img src="imgs/microphone.svg" alt="Микрофон">
+                        </button>
+                        <button id="toggleCameraBtn" class="media-button">
+                            <img src="imgs/camera.svg" alt="Камера">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="new-chat-modal" style="display: none;">
+        <div class="new-chat-modal-background"></div>
+        <div class="new-chat-modal-content">
+            <img src="imgs/cross.svg" width="20" height="20" alt="Закрыть" class="new-chat-modal-cross">
+            <div class="modal-title"></div>
+            <div class="modal-title-row">
+                <div class="modal-avatar-img">
+                    <div class="modal-colour-avatar">
+                        <div class="modal-text-avatar"></div>
+                    </div>
+                </div>
+                <input type="text" class="chat-title-input" placeholder="Название" maxlength="100" />
+            </div>
+            <textarea class="chat-description-input" placeholder="Описание" maxlength="255"></textarea>
+            <div class="modal-channel-settings" style="display: none;">
+                <div class="private-channel-row">
+                    <label for="isPrivateChannel" style="color: var(--text-primary); display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                        <label class="modal-switch">
+                            <input type="checkbox" id="isPrivateChannel">
+                            <span class="modal-slider"></span>
+                        </label>
+                        <span>Приватный канал</span>
+                    </label>
+                </div>
+                <div class="slug-row" style="margin-top: 10px;">
+                    <input type="text" class="slug-input" placeholder="Ссылка" maxlength="50" style="width: 100%;">
+                    <span class="slug-hint">mint.cloudpub.ru/channel/</span>
+                    <div class="slug-error" style="color: var(--accent-red); font-size: 12px; margin-top: 2px"></div>
+                </div>
+            </div>
+            <div class="modal-search-section">
+                <div class="search-row">
+                    <input type="text" class="modal-search-input" placeholder="Поиск пользователей" />
+                    <button class="modal-toggle-search" type="button">
+                        <img src="imgs/change.svg" alt="Сменить тип поиска" class="modal-switch-img">
+                    </button>
+                </div>
+                <div class="modal-search-results"></div>
+            </div>
+            <div class="modal-selected-participants" id="selectedParticipants"></div>
+            <button class="create-chat-button" disabled>Создать</button>
+        </div>
+    </div>
+    <div class="chat-info-modal" style="display: none;">
+        <div class="chat-info-modal-background"></div>
+        <div class="chat-info-modal-content">
+            <img src="imgs/cross.svg" width="20" height="20" alt="Закрыть" class="chat-info-modal-cross">
+            <button class="chat-info-modal-leave-btn" title="Выйти">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                    <polyline points="16 17 21 12 16 7" />
+                    <line x1="21" y1="12" x2="9" y2="12" />
+                </svg>
+            </button>
+            <div class="chat-info-modal-avatar">
+                <div class="chat-info-modal-avatar-img"></div>
+            </div>
+            <div class="chat-info-modal-title" id="chat-info-title"></div>
+            <div class="chat-info-modal-description" id="chat-info-desc"></div>
+            <input type="text" class="chat-info-edit-title" style="display: none;" maxlength="100" />
+            <textarea class="chat-info-edit-desc" style="display: none;" maxlength="255" rows="2"></textarea>
+            <button class="chat-info-modal-invite-btn">Получить ссылку приглашения</button>
+            <div class="chat-info-modal-participants-title">Участники</div>
+            <div class="chat-info-modal-participants-list"></div>
+        </div>
+    </div>
+    <div class="profile-modal" style="display: none;">
+        <div class="profile-modal-background"></div>
+        <div class="profile-modal-content">
+            <img src="imgs/cross.svg" width="20" height="20" alt="Закрыть" class="profile-modal-cross">
+            <div class="profile-modal-avatar">
+                <div class="profile-modal-avatar-img"></div>
+            </div>
+            <div class="profile-modal-field" id="profile-username-display"></div>
+            <div class="profile-modal-name" id="profile-name-display"></div>
+            <div class="profile-modal-description" id="profile-description-display"></div>
+            <div id="profile-error" style="color: var(--accent-red); font-size: 14px; display:none;"></div>
+        </div>
+    </div>
+    <div class="settings-modal" style="display: none;">
+        <div class="settings-modal-background"></div>
+        <div class="settings-modal-content">
+            <button class="settings-modal-leave-btn" title="Выйти">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                    <polyline points="16 17 21 12 16 7" />
+                    <line x1="21" y1="12" x2="9" y2="12" />
+                </svg>
+            </button>
+            <img src="imgs/cross.svg" width="20" height="20" alt="Закрыть" class="settings-modal-cross">
+            <div class="settings-modal-avatar">
+                <div class="settings-modal-avatar-img"></div>
+            </div>
+            <div class="settings-modal-field" id="settings-username-display"></div>
+            <input type="text" class="settings-edit-field" id="settings-username-edit" style="display:none;" maxlength="35" placeholder="Имя пользователя" />
+            <div class="settings-modal-name" id="settings-name-display"></div>
+            <input type="text" class="settings-edit-field" id="settings-name-edit" style="display:none;" maxlength="45" placeholder="Ваше имя" />
+            <div class="settings-modal-description" id="settings-description-display"></div>
+            <textarea class="settings-edit-field" id="settings-description-edit" style="display:none;" maxlength="255"></textarea>
+            <div id="settings-error" style="color: var(--accent-red); font-size: 14px; display:none;"></div>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="/scripts/config.js"></script>
+<script type="module" src="/scripts/api-client.js"></script>
+<script type="module" src="/scripts/token-manager.js"></script>
+
+<script type="module" src="/scripts/start/start.js"></script>
+<script type="module" src="/scripts/start/dom.js"></script>
+<script type="module" src="/scripts/start/functions.js"></script>
+<script type="module" src="/scripts/start/phone.js"></script>
+
+<script type="module" src="/scripts/main/main.js"></script>
+<script type="module" src="/scripts/main/files.js"></script>
+<script type="module" src="/scripts/main/webrtc-client.js"></script>
+<script type="module" src="/scripts/main/calling.js"></script>
+<script type="module" src="/scripts/main/chats-modal.js"></script>
+<script type="module" src="/scripts/main/info-modal.js"></script>
+<script type="module" src="/scripts/main/settings-modal.js"></script>
+<script type="module" src="/scripts/main/online-heartbeat.js"></script>
+
+<script type="module" src="/scripts/spa-router.js"></script>
+
+</body>
+</html>
