@@ -1,6 +1,6 @@
-# mint
+# Mint messenger
 
-![Лого](https://github.com/mawsom777/mint/blob/main/materials/ico.png)
+![Logo](https://github.com/mawsom777/mint/blob/main/materials/ico.png)
 **Mint** - это веб-мессенджер с возможностью обмена текстовыми сообщениями (не только в личных чатах), файлами (с превью изображений) и с много чем еще.  
 
 ---
