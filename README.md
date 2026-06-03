@@ -107,7 +107,14 @@ Mint - это веб-мессенджер с возможностью совер
 
 ## 📺 Демонстрация работы
 ### Регистрация
-<video src="https://github.com/mawsom777/mint/blob/9304f37263e65fb1e8a143ac6b39ddec33a1d16f/materials/Online && Read.mp4"> </video>
+
+
+https://github.com/user-attachments/assets/e6338f9e-695b-418c-a719-da9231488469
+
+
+
+https://github.com/user-attachments/assets/34f38438-3a41-43cf-94f4-3ac8f86189fe
+
 
 ## 📱 Демонстрационная версия
 
